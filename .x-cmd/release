@@ -10,6 +10,7 @@ ref=docs/23-5-25
 # x gh --cfg set token="${github_token}"
 ___x_cmd_gh_repo_file_ls___get_repo_root_tree_sha_
 [ -n "$x_" ] || return 1
+x gh user info
 x gh repo info "${owner_repo}"                                                        || return 1
 x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/official-doc.tar.gz"      || return 1
 x uz "$WORK_DIR/.x-cmd/official-doc.tar.gz" "$WORK_DIR/.x-cmd"                        || return 1
