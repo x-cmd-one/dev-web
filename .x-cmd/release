@@ -1,0 +1,10 @@
+# shellcheck shell=sh disable=SC1091,SC2034,SC3043 #xsh
+
+# Section: Arg
+WORK_DIR="$(x wsroot)"
+
+# Section: Main
+x cowsay hello
+x gh --cfg set token="${github_token}"
+x gh user info
+ls
