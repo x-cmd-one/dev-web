@@ -2,9 +2,19 @@
 
 # Section: Arg
 WORK_DIR="$(x wsroot)"
+X_BRANCH="docs/23-5-25"
+owner_repo=x-cmd/official-doc
+ref=docs/23-5-25
 
 # Section: Main
-x cowsay hello
-x gh --cfg set token="${github_token}"
-x gh user info
+# x gh --cfg set token="${github_token}"
+___x_cmd_gh_repo_file_ls___get_repo_root_tree_sha_
+[ -n "$x_" ] || return 1
+x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/official-doc"             || return 1
+x uz "$WORK_DIR/.x-cmd/official-doc.tar.gz" "$WORK_DIR/.x-cmd"                        || return 1
+x mv "$WORK_DIR/.x-cmd/x-cmd-official-doc-${x_}" "$WORK_DIR/.x-cmd/official-doc"      || return 1
+x rmrf "$WORK_DIR/.x-cmd/official-doc.tar.gz"                                         || return 1
+cd "$WORK_DIR/.x-cmd/official-doc"                                                    || return 1
 ls
+pwd
+
