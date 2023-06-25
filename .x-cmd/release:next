@@ -3,7 +3,7 @@
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 owner_repo=x-cmd/official-doc
-ref=docs/23-5-25
+ref=main
 
 # Section: Main
 
