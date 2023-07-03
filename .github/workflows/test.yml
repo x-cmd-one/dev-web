@@ -5,14 +5,16 @@ on:
 jobs:
   Bundle:
     runs-on: ubuntu-latest
+    container:
+      image: xcmd/ubuntu-dev
     timeout-minutes: 5
     env:
-      ___X_CMD_GHACTION_X: x1
+      CONCURRENCY: 10
+      ___X_CMD_GHACTION_X: x2
       ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
       github_token: ${{ secrets.X_GITHUB_TOKEN }}
       git_user: agent-zero
       git_email: 0@x-cmd.com
-      CONCURRENCY: 10
     steps:
       - name: main
         uses: x-cmd/action@main
