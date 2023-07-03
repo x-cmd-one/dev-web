@@ -2,7 +2,7 @@
 
 (
     case "${1}" in
-      next)   x gh wf run -r x-cmd-one/dev-web .id=60740968   ;;
-      *)      x gh wf run -r x-cmd-one/dev-web .id=62027554   ;;
+      next)   x gh wf run -r x-cmd-one/dev-web .id=62027554   ;;
+      *)      x gh wf run -r x-cmd-one/dev-web .id=60740968   ;;
     esac
 )
