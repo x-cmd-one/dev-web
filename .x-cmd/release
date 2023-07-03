@@ -3,6 +3,6 @@
 (
     case "${1}" in
       next)   x gh wf run -r x-cmd-one/dev-web .id=60740968   ;;
-      *)      x gh wf run -r x-cmd-one/dev-web release        ;;
+      *)      x gh wf run -r x-cmd-one/dev-web .id=62027554   ;;
     esac
 )
