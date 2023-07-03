@@ -1,9 +1,9 @@
 name: release
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '50 3 * * *'
-    - cron: '50 12 * * *'
+  # schedule:
+  #   - cron: '50 3 * * *'
+  #   - cron: '50 12 * * *'
   
 
 jobs:
