@@ -10,5 +10,5 @@
     x gh --cfg set token="${github_token}"
     x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/x-cmd-official-doc" || exit 1
     cd "$WORK_DIR/.x-cmd/x-cmd-official-doc"                                        || exit 1
-    x ws release:next                                                               
+    x ws release                                                               
 )

@@ -1,6 +1,8 @@
-# shellcheck shell=sh disable=SC1091,SC2034,SC3043 #xsh
+# shellcheck shell=dash
 
 (
-  x gh wf run -r x-cmd-one/dev-web .id=60740968
+    case "${1}" in
+      next)   x gh wf run -r x-cmd-one/dev-web .id=60740968   ;;
+      *)      x gh wf run -r x-cmd-one/dev-web release        ;;
+    esac
 )
-

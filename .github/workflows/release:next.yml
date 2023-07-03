@@ -1,6 +1,10 @@
-name: test
+name: release:next
 on:
   workflow_dispatch:
+  # schedule:
+  #   - cron: '50 3 * * *'
+  #   - cron: '50 12 * * *'
+  
 
 jobs:
   Bundle:
@@ -17,5 +21,4 @@ jobs:
       - name: main
         uses: x-cmd/action@v0
         with:
-          code: |
-            x cowsay hello
+          code: x ws release:next || true
