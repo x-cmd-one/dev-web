@@ -19,4 +19,6 @@ jobs:
       - name: main
         uses: x-cmd/action@fix-container
         with:
-          code: x cowsay hello
+          code: |
+            x cowsay hello
+            x cowsay hello
