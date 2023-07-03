@@ -17,6 +17,6 @@ jobs:
       git_email: 0@x-cmd.com
     steps:
       - name: main
-        uses: x-cmd/action@main
+        uses: x-cmd/action@fix-container
         with:
           code: x cowsay hello
