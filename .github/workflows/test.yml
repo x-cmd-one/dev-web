@@ -21,4 +21,3 @@ jobs:
         with:
           code: |
             x cowsay hello
-            x cowsay hello
