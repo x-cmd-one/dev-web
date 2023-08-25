@@ -2,8 +2,9 @@ name: release
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 3 * * *'
-    - cron: '30 12 * * *'
+    - cron: '00 7 * * *'
+    - cron: '00 10 * * *'
+    - cron: '30 11 * * *'
   
 
 jobs:
