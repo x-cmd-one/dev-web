@@ -29,6 +29,8 @@ jobs:
       UMAMI_CN_ID: ${{ secrets.UMAMI_CN_ID }}
       X_OSS_ACCESS_KEY_ID: ${{ secrets.X_OSS_ACCESS_KEY_ID }}
       X_OSS_SECRET_ACCESS_KEY: ${{ secrets.X_OSS_SECRET_ACCESS_KEY }}
+      X_ALI_ACCESS_KEY_ID: ${{ secrets.X_ALI_ACCESS_KEY_ID }}
+      X_ALI_ACCESS_KEY_SECRET: ${{ secrets.X_ALI_ACCESS_KEY_SECRET }}
     steps:
       - name: main
         uses: x-cmd/action@v0
