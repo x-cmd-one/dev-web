@@ -11,7 +11,7 @@ on:
 jobs:
   Bundle:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       CONCURRENCY: 10
       # ___X_CMD_GHACTION_X: x1
