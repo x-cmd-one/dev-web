@@ -1,21 +1,14 @@
 # shellcheck shell=dash
 
 (
-    # Section: Arg
-    # WORK_DIR="$(x wsroot)"
-    # owner_repo=x-cmd/official-doc
-    # ref=main
+    Section: Arg
+    WORK_DIR="$(x wsroot)"
+    owner_repo=x-cmd/official-doc
+    ref=main
 
-    # # Section: Main
-    # x gh --cfg set token="${github_token}"
-    # x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/x-cmd-official-doc" || exit 1
-    # cd "$WORK_DIR/.x-cmd/x-cmd-official-doc"                                        || exit 1
-    # x ws release:next                                                               
-
-
-    ## TEST
-    echo '--------- testing ----------'
-    ssh-keyscan -H world.hub.x-cmd.com 2>/dev/null >> ~/.ssh/known_hosts
-    ssh zqb@world.hub.x-cmd.com "rm -f deploy.log; nohup bash /home/zqb/script/hello.sh >hello.log 2>&1  &"
-    echo '--------- testing ----------'
+    # Section: Main
+    x gh --cfg set token="${github_token}"
+    x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/x-cmd-official-doc" || exit 1
+    cd "$WORK_DIR/.x-cmd/x-cmd-official-doc"                                        || exit 1
+    x ws release:next                                                               
 )
