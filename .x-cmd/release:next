@@ -14,5 +14,8 @@
 
 
     ## TEST
+    echo '--------- testing ----------'
+    ssh-keyscan -H world.hub.x-cmd.com >> ~/.ssh/known_hosts
     ssh zqb@world.hub.x-cmd.com "rm -f deploy.log; nohup bash /home/zqb/script/hello.sh >hello.log 2>&1  &"
+    echo '--------- testing ----------'
 )
