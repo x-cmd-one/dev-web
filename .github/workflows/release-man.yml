@@ -1,4 +1,4 @@
-name: release man
+name: release:man
 on:
   workflow_dispatch:
   # schedule:
