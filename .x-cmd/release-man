@@ -3,7 +3,7 @@
 (
     # Section: Arg
     WORK_DIR="$(x wsroot)"
-    owner_repo=x-cmd/official-doc
+    owner_repo=x-cmd-man/webapp
     ref=main
 
     # Section: Main
@@ -12,13 +12,13 @@
         exit 1
     }
     x gh --cfg set token="${github_token}"
-    # x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/x-cmd-official-doc" || exit 1
+    # x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/webapp" || exit 1
     command git clone \
         --branch "$ref" \
         --depth 1       \
         "https://$(x gh --cfg get token)@github.com/${owner_repo}.git" \
-        "$WORK_DIR/.x-cmd/x-cmd-official-doc" || exit 1
-    x cd "$WORK_DIR/.x-cmd/x-cmd-official-doc"|| exit 1
+        "$WORK_DIR/.x-cmd/webapp" || exit 1
+    x cd "$WORK_DIR/.x-cmd/webapp"|| exit 1
     echo "
 BAIDU_TOKEN=${BAIDU_TOKEN}
 BING_TOKEN=${BING_TOKEN}
@@ -27,7 +27,7 @@ BAIDU_TONGJI_EN_ID=${BAIDU_TONGJI_EN_ID}
 BAIDU_TONGJI_CN_ID=${BAIDU_TONGJI_CN_ID}
 UMAMI_EN_ID=${UMAMI_EN_ID}
 UMAMI_CN_ID=${UMAMI_CN_ID}
-"   > "$WORK_DIR/.x-cmd/x-cmd-official-doc/.env"
+"   > "$WORK_DIR/.x-cmd/webapp/.env"
 
     x ws release                                                               
 )
