@@ -13,9 +13,8 @@
     }
     x gh --cfg set token="${github_token}"
     # x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/webapp" || exit 1
-    command git clone \
+    command git clone   \
         --branch "$ref" \
-        --depth 1       \
         "https://$(x gh --cfg get token)@github.com/${owner_repo}.git" \
         "$WORK_DIR/.x-cmd/webapp" || exit 1
     x cd "$WORK_DIR/.x-cmd/webapp"|| exit 1
