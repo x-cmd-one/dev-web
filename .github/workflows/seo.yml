@@ -1,0 +1,38 @@
+name: seo
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '00 5 * * 1'  # 13
+    - cron: '00 6 * * 2'
+    - cron: '00 7 * * 3'
+    - cron: '00 8 * * 4'
+    - cron: '00 9 * * 5'
+    - cron: '00 10 * * 6'
+
+  
+
+jobs:
+  Bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CONCURRENCY: 10
+      # ___X_CMD_GHACTION_X: x1
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      github_token: ${{ secrets.X_GITHUB_TOKEN }}
+      git_user: agent-zero
+      git_email: 0@x-cmd.com
+
+      BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
+      BING_TOKEN: ${{ secrets.BING_TOKEN }}
+      EN_INDEXNOW_TOKEN: ${{ secrets.EN_INDEXNOW_TOKEN }}
+      CN_INDEXNOW_TOKEN: ${{ secrets.CN_INDEXNOW_TOKEN }}
+      EN_GIS_CLIENT_EMAIL: ${{ secrets.EN_GIS_CLIENT_EMAIL }}
+      EN_GIS_PRIVATE_KEY: ${{ secrets.EN_GIS_PRIVATE_KEY }}
+      CN_GIS_CLIENT_EMAIL: ${{ secrets.CN_GIS_CLIENT_EMAIL }}
+      CN_GIS_PRIVATE_KEY: ${{ secrets.CN_GIS_PRIVATE_KEY }}
+    steps:
+      - name: main
+        uses: x-cmd/action@v0
+        with:
+          code: x ws seo || true

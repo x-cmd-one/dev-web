@@ -1,0 +1,34 @@
+# shellcheck shell=dash
+
+(
+    # Section: Arg
+    WORK_DIR="$(x wsroot)"
+    owner_repo=x-cmd/official-doc
+    ref=main
+
+    # Section: Main
+    [ -n "$github_token" ] || {
+        printf "%s\n" "Error Token"
+        exit 1
+    }
+    x gh --cfg set token="${github_token}"
+    # x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/webapp" || exit 1
+    command git clone   \
+        --branch "$ref" \
+        "https://$(x gh --cfg get token)@github.com/${owner_repo}.git" \
+        "$WORK_DIR/.x-cmd/webapp" || exit 1
+    x cd "$WORK_DIR/.x-cmd/webapp"|| exit 1
+
+    echo "
+BAIDU_TOKEN=${BAIDU_TOKEN}
+BING_TOKEN=${BING_TOKEN}
+EN_INDEXNOW_TOKEN=${EN_INDEXNOW_TOKEN}
+CN_INDEXNOW_TOKEN=${CN_INDEXNOW_TOKEN}
+"   > "$WORK_DIR/.x-cmd/webapp/.env"
+    x jo "{private_key: \"${EN_GIS_PRIVATE_KEY}\" , client_email: \"${EN_GIS_CLIENT_EMAIL}\"}" \
+        > "$WORK_DIR/.x-cmd/webapp/service_account_en.json"
+    x jo "{private_key: \"${CN_GIS_PRIVATE_KEY}\" , client_email: \"${CN_GIS_CLIENT_EMAIL}\"}" \
+        > "$WORK_DIR/.x-cmd/webapp/service_account_cn.json"
+
+    x ws seo                                                           
+)
