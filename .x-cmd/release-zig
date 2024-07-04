@@ -22,8 +22,8 @@
 BAIDU_TOKEN=${BAIDU_TOKEN}
 BING_TOKEN=${BING_TOKEN}
 UMAMI_ENDPOINT=${UMAMI_ENDPOINT}
-BAIDU_TONGJI_ZIG_ID=${BAIDU_TONGJI_MAN_ID}
-UMAMI_ZIG_ID=${UMAMI_MAN_ID}
+BAIDU_TONGJI_ZIG_ID=${BAIDU_TONGJI_ZIG_ID}
+UMAMI_ZIG_ID=${UMAMI_ZIG_ID}
 "   > "$WORK_DIR/.x-cmd/webapp/.env"
 
     x ws release                                                               
