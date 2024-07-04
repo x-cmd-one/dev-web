@@ -1,4 +1,4 @@
-name: release:man
+name: release:zig
 on:
   workflow_dispatch:
   # schedule:
@@ -39,4 +39,4 @@ jobs:
       - name: main
         uses: x-cmd/action@v0
         with:
-          code: x ws release-man || true
+          code: x ws release-zig || true
