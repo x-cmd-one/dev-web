@@ -28,6 +28,7 @@ jobs:
       BAIDU_TONGJI_MAN_ID: ${{ secrets.BAIDU_TONGJI_MAN_ID }}
       UMAMI_EN_ID: ${{ secrets.UMAMI_EN_ID }}
       UMAMI_CN_ID: ${{ secrets.UMAMI_CN_ID }}
+      UMAMI_HK_ID: ${{ secrets.UMAMI_HK_ID }}
       UMAMI_MAN_ID: ${{ secrets.UMAMI_MAN_ID }}
       X_OSS_ACCESS_KEY_ID: ${{ secrets.X_OSS_ACCESS_KEY_ID }}
       X_OSS_SECRET_ACCESS_KEY: ${{ secrets.X_OSS_SECRET_ACCESS_KEY }}
