@@ -19,7 +19,7 @@ jobs:
   run-script:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (x-cmd/action)
         uses: x-cmd/action@v0
 
       - name: Download artifact if artifact_id provided
@@ -29,7 +29,7 @@ jobs:
             https://api.github.com/repos/${{ github.repository }}/actions/artifacts/${{ inputs.artifact_id }}/zip \
             -o artifact.zip
           unzip -o artifact.zip
-          echo "FILENAME=$(ls -1 *.sh *.py *.js 2>/dev/null | head -1 || echo 'script')" >> $GITHUB_ENV
+          echo "FILENAME=$(ls -1 *.sh *.py *.js *.ts 2>/dev/null | head -1 || echo 'script')" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -46,10 +46,22 @@ jobs:
             exit $EXIT_CODE
           elif [ -n "${{ inputs.artifact_id }}" ]; then
             FILENAME="${FILENAME:-script}"
-            chmod +x "$FILENAME"
             echo "=== Running: $FILENAME ===" | tee output.log
-            bash "$FILENAME" 2>&1 | tee -a output.log
-            echo "=== Exit code: $? ===" >> output.log
+            case "$FILENAME" in
+              *.js|*.ts)
+                node "$FILENAME" 2>&1 | tee -a output.log
+                ;;
+              *.py)
+                python3 "$FILENAME" 2>&1 | tee -a output.log
+                ;;
+              *)
+                chmod +x "$FILENAME"
+                bash "$FILENAME" 2>&1 | tee -a output.log
+                ;;
+            esac
+            EXIT_CODE=${PIPESTATUS[0]}
+            echo "=== Exit code: $EXIT_CODE ===" >> output.log
+            exit $EXIT_CODE
           else
             echo "Error: Either script or artifact_id must be provided" | tee output.log
             exit 1
