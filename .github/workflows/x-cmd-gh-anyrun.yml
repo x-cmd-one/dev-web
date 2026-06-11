@@ -47,8 +47,9 @@ jobs:
 
           echo "=== Running: $FILENAME ===" | tee output.log
           case "$FILENAME" in
-            *.js|*.ts)
-              node "$FILENAME" 2>&1 | tee -a output.log
+            *.js|*.mjs|*.cjs|*.ts)
+              . ~/.x-cmd.root/X
+              x bun "$FILENAME" 2>&1 | tee -a output.log
               ;;
             *.py)
               python3 "$FILENAME" 2>&1 | tee -a output.log
