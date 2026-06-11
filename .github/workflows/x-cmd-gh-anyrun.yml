@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: x-cmd/action@v0
 
       - name: Download artifact if artifact_id provided
         if: inputs.artifact_id != ''
