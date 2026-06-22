@@ -29,5 +29,5 @@ UMAMI_CN_ID=${UMAMI_CN_ID}
 UMAMI_HK_ID=${UMAMI_HK_ID}
 "   > "$WORK_DIR/.x-cmd/webapp/.env"
 
-    x ws fabu                                                            
+    x ws fabu-all                                                            
 )
