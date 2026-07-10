@@ -2,7 +2,6 @@ name: fabu-all
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 17 * * *'  # 00:00
     - cron: '0 19 * * *'  # 03:00
     - cron: '0 22 * * *'  # 06:00
   
@@ -10,7 +9,7 @@ on:
 jobs:
   Bundle:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     env:
       CONCURRENCY: 10
       ___X_CMD_GHACTION_X: beta

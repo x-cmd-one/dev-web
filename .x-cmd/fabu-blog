@@ -4,7 +4,7 @@
     # Section: Arg
     WORK_DIR="$(x wsroot)"
     owner_repo=x-cmd/official-doc
-    ref=splite-site
+    ref=main
 
     # Section: Main
     [ -n "$github_token" ] || {
