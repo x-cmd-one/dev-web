@@ -38,4 +38,4 @@ jobs:
       - name: main
         uses: x-cmd/action@v0
         with:
-          code: x ws fabu-main || true
+          code: x ws release main || true
