@@ -13,10 +13,8 @@
     }
     x gh --cfg set token="${github_token}"
     # x gh repo download "${owner_repo}@${ref}" "$WORK_DIR/.x-cmd/webapp" || exit 1
-    command git clone \
-        --branch "$ref" \
-        "https://$(x gh --cfg get token)@github.com/${owner_repo}.git" \
-        "$WORK_DIR/.x-cmd/webapp" || exit 1
+    GH_TOKEN="$github_token" command gh repo clone --no-upstream \
+        "https://github.com/${owner_repo}.git" "$WORK_DIR/.x-cmd/webapp" -- --branch "$ref" || exit 1
     x cd "$WORK_DIR/.x-cmd/webapp"|| exit 1
     echo "
 BAIDU_TOKEN=${BAIDU_TOKEN}
